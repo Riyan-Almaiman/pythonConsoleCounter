@@ -1,7 +1,8 @@
+import random
 import time
 
-data_list = [1,2,1,4,5,14,14,5,14,5,14,2,1,2,1,5,14,5,14,3,2,4,5,14,5,14,5,14,4,5,14,5,14,5,14,2,12,12,2,1,2,1,2,1,2,1,2,1,15,14,5,14,5,14,5,14,5,14,5,14,5,14,5,14,5,15,14,5,14,5,1,9,8,3,2,4]  # shortened for brevity
-thingsToBeLogged = ['less than 3', 'less than 5', 'greater than 9'] ## useless in this situation
+data_list = [random.randint(0, 100) for number in range(1000)] #random numbers to use
+thingsToBeLogged = ['less than 20', 'less than 50', 'greater than 50'] ## useless in this situation
 counter_dictionary = {}
 order_of_logs = []
 
@@ -19,12 +20,12 @@ def update_counter(val, display_text):
 
 for value in data_list:
     
-    if value < 3:
-        update_counter(value,'less than 3')
-    elif 3 <= value <= 5:
-        update_counter(value, 'less than 5')
+    if value < 20:
+        update_counter(value,'less than 20')
+    elif 20 <= value <= 50:
+        update_counter(value, 'less than 50')
     else:
-        update_counter(value, 'greater than 5')
+        update_counter(value, 'greater than 50')
     time.sleep(.1)
 
 input()
