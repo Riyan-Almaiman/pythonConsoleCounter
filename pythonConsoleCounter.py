@@ -13,7 +13,7 @@ def update_counter(val, log_text):
     print(f'\r\033[{line_num}A', end='', flush=True)
 
 
-data_list = [random.randint(0, 100) for number in range(1000)] #1000 random numbers from 1-100
+data_list = [random.randint(0, 100) for number in range(1000)] #1000 random numbers from 0-100
 
 # things you can log
 things_to_be_logged = {
