@@ -6,6 +6,8 @@ thingsToBeLogged = ['less than 20', 'less than 50', 'greater than 50'] ## useles
 counter_dictionary = {}
 order_of_logs = []
 
+print('1000 random numbers from 0-100 counter')
+
 def update_counter(val, display_text):
 
     if display_text not in counter_dictionary:
