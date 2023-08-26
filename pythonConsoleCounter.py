@@ -1,6 +1,18 @@
 import random
 import time
 
+def update_counter(val, log_text):
+    if log_text not in log_counter:
+        log_counter[log_text] = 0
+        log_indexes.append(log_text)
+
+    line_num = log_indexes.index(log_text) + 1
+    print(f'\r\033[{line_num}B', end='', flush=True)
+    log_counter[log_text] += 1
+    print(f'\r{log_text}: {log_counter[log_text]}', end='', flush=True)
+    print(f'\r\033[{line_num}A', end='', flush=True)
+
+
 data_list = [random.randint(0, 100) for number in range(1000)] #1000 random numbers from 1-100
 
 # things you can log
@@ -13,28 +25,15 @@ things_to_be_logged = {
 }
 
 log_counter = {}
-log_indexes = []
+log_indexes = [] # keep track of the order of when something was logged to update the correct line
+
 
 print('Generating 1000 numbers and counting their values')
 
-def update_counter(val, display_text):
-    if display_text not in log_counter:
-        log_counter[display_text] = 0
-        log_indexes.append(display_text)
-
-    line_num = log_indexes.index(display_text) + 1
-    print(f'\r\033[{line_num}B', end='', flush=True)
-    log_counter[display_text] += 1
-    print(f'\r{display_text}: {log_counter[display_text]}', end='', flush=True)
-    print(f'\r\033[{line_num}A', end='', flush=True)
-
-
-
 for value in data_list:
-    for display_text, condition in things_to_be_logged.items():
+    for log_text, condition in things_to_be_logged.items():
         if condition(value):
-            update_counter(value, display_text)
-            break
+            update_counter(value, log_text)
     time.sleep(.1)
 
 input()
