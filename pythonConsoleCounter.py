@@ -6,8 +6,7 @@ thingsToBeLogged = ['less than 20', 'less than 50', 'greater than 50'] ## useles
 counter_dictionary = {}
 order_of_logs = []
 
-print('1000 random numbers from 0-100 counter')
-
+print('Generating 1000 numbers and counting their values')
 def update_counter(val, display_text):
 
     if display_text not in counter_dictionary:
@@ -22,12 +21,16 @@ def update_counter(val, display_text):
 
 for value in data_list:
     
-    if value < 20:
-        update_counter(value,'less than 20')
+    if value < 3:
+        update_counter(value, 'Numbers smaller than 3')
+    elif value == 10:
+        update_counter(value, 'Numbers equal to 10')
+    elif value < 20:
+        update_counter(value, 'Numbers smaller than 20')    
     elif 20 <= value <= 50:
-        update_counter(value, 'less than 50')
+        update_counter(value, 'Numbers between 20 and 50')
     else:
-        update_counter(value, 'greater than 50')
+        update_counter(value, 'Numbers bigger than 50')
     time.sleep(.1)
 
 input()
